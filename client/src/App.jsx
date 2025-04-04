@@ -1,16 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Login from './components/login'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from './components/login';
+import Register from './components/user.register';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />
+  },
+  {
+    path: "/register",
+    element: <Register />
+  }
+]);
 
 function App() {
-
   return (
-    <>
-      <Login />
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;
