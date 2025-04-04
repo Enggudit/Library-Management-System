@@ -4,6 +4,7 @@ const app= express();
 const cors = require('cors');
 dotenv.config();
 const connectTodb = require('./db/db');
+const userRoutes = require('./routes/users.routes');
 
 connectTodb();
 
@@ -12,5 +13,7 @@ app.use(cors());
 app.get('/', (req,res) =>{
     res.send("Backend running successfully");
 });
+
+app.user('/user', userRoutes);
 
 module.exports =app;

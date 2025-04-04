@@ -25,6 +25,11 @@ const userSchema =  new mongoose.Schema({
         required: true,
         select: false,
     },
+    period: {
+        type: String,
+        required: true,
+        select: false,
+    },
     scoketId: {
         type: String,
     }
