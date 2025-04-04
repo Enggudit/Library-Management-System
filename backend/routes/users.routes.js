@@ -16,13 +16,16 @@ router.post('./register',[
     userController.registerUser
 )
 
-router.post('/logins',[
+router.post('/login',[
     body('email').isEmail().withMessage('Invalid Emaill/Password'),
     body('fullname.firstname').isLength({ min: 3}).withMessage('first name must be at least 3 charachet long'),],
 
     userController.loginUser
 )
 
-router.get('./profile',authMiddellware.authuser,  userController.getUserProfile)
+router.get('/profile',authMiddellware.authuser, userController.getUserProfile)
+router.get('/logout', authMiddellware.authuser, userController.logoutUser)
 
-module.exports - router;
+
+
+module.exports = router;
