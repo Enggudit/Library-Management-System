@@ -1,15 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function login() {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword]= useState('');
+    const [userData, setUserData] = useState();  
+
+    const handleSubmit = ()=>{
+        e.preventDefault();
+        setUserData({
+            email: email,
+            password: password
+        })
+        setEmail('');
+        setPassword('');
+
+    }
+
+
   return (
     <div className='w-screen h-screen'>
         <img className='w-full h-full absolute z-[-999]'  src="../public/images/library.jpg" alt="" />
         <div className="w-[25vw] min-w-[300px] absolute right-15 top-50 backdrop-blur-md p-6 bg-zinc-100/10 shadow-lg rounded-lg border border-gray-200">
-            <form action="" onSubmit={hadlesubmit}>
+            <form action="" onSubmit={handleSubmit}>
                 <h1 className="text-xl text-white font-semibold text-gray-800 mb-2">Enter College ID</h1>
                 <input
                     type="text"
                     placeholder="Enter your College ID"
+                    value={email}
+                    required
+                    onChange={(email)=>{
+                        setEmail(email.target.value);
+                    }}
                     className="w-full  p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
 
@@ -17,6 +39,12 @@ function login() {
                 <input
                     type="password"
                     placeholder="Enter your Password"
+                    value={password}
+                    required
+                    onChange={(password)=>{
+                        setPassword(password.target.value);
+                        
+                    }}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
 
